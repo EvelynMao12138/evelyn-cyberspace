@@ -17,17 +17,18 @@ export default function AeroLife({travel,animated}){
  useFrame(({camera,size,pointer},dt)=>{if(animated&&!document.hidden)time.current+=Math.min(dt,.05);let t=time.current,z=travel.current.cameraZ;
  let progress=(5-z)/55;let g1=THREE.MathUtils.smoothstep(progress,.10,.20),g2=THREE.MathUtils.smoothstep(progress,.43,.53);
  let g3=THREE.MathUtils.smoothstep(progress,.76,.86);let s=g3>.999?3:g3>.001?-1:g2>.999?2:g1>.999&&g2<.001?1:g1<.001?0:-1;
- let settled=performance.now()-(travel.current.lastMotion||0)>90&&Math.abs(travel.current.target-travel.current.current)<.004;
- let show=settled&&s>=0;
- if(s>=0&&visibility.current<.02)stageRef.current=s;
- visibility.current=THREE.MathUtils.damp(visibility.current,show?1:0,show?10:28,Math.min(dt,.05));
- if(!show&&visibility.current<.015)visibility.current=0;
+ const destination=Math.round(travel.current.target*3),anchor=destination/3;
+ const arrived=s>=0&&s===destination&&Math.abs(travel.current.target-anchor)<.018&&Math.abs(progress-anchor)<.025;
+ // Switch poses while fully hidden; never move a visible pose between stations.
+ if(arrived&&stageRef.current!==s){visibility.current=0;stageRef.current=s;}
+ const show=arrived;
+ visibility.current=THREE.MathUtils.damp(visibility.current,show?1:0,show?24:40,Math.min(dt,.05));
+ if(!show&&visibility.current<.03)visibility.current=0;
  actor.current.visible=visibility.current>.002;
- if(s>=0&&visibility.current<.02)stageRef.current=s;
  let h=8*Math.tan(Math.PI/6),w=h*size.width/size.height;
  root.current.position.set(camera.position.x,0,z-8);
  let p=[[.79,.32],[.50,.40],[.29,.30],[.76,.23]][stageRef.current];
- actor.current.position.set((p[0]-.5)*w*2,(p[1]-.5)*h*2-(1-visibility.current)*.06,0);
+ actor.current.position.set((p[0]-.5)*w*2,(p[1]-.5)*h*2,0);
  actor.current.rotation.y=pointer.x*.12;
  actor.current.scale.setScalar(.76);
  shadow.current.uniforms.opacity.value=visibility.current;

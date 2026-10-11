@@ -54,11 +54,10 @@ function createSoundscape(){
  return {context,master,setProximity,pop:clickPop,destroy(){clearInterval(timer);context.close();}};
 }
 export default function SoundControl({progress=0}){
- const [enabled,setEnabled]=useState(false),engine=useRef(null),stopTimer=useRef(null),wanted=useRef(false);
- async function toggle(){const next=!wanted.current;wanted.current=next;clearTimeout(stopTimer.current);
- if(next){try{engine.current ||= createSoundscape();engine.current.setProximity(progress);await engine.current.context.resume();if(!wanted.current)return;setEnabled(true);const {context,master}=engine.current;master.gain.cancelScheduledValues(context.currentTime);master.gain.setTargetAtTime(.65,context.currentTime,.20);engine.current.pop();}catch{wanted.current=false;setEnabled(false);}}
- else {setEnabled(false);if(engine.current){const {context,master}=engine.current;master.gain.cancelScheduledValues(context.currentTime);master.gain.setTargetAtTime(0,context.currentTime,.15);stopTimer.current=setTimeout(()=>{if(!wanted.current)context.suspend();},850);}}
- }
+ const [enabled,setEnabled]=useState(true),engine=useRef(null),stopTimer=useRef(null),wanted=useRef(true);
+ function startSound(){if(!wanted.current)return;try{engine.current ||= createSoundscape();engine.current.setProximity(progress);const {context,master}=engine.current;master.gain.cancelScheduledValues(context.currentTime);master.gain.setTargetAtTime(.65,context.currentTime,.20);context.resume().catch(()=>{});}catch{}}
+ function toggle(){const next=!wanted.current;wanted.current=next;setEnabled(next);clearTimeout(stopTimer.current);if(next){startSound();engine.current?.pop();}else if(engine.current){const {context,master}=engine.current;master.gain.cancelScheduledValues(context.currentTime);master.gain.setTargetAtTime(0,context.currentTime,.15);stopTimer.current=setTimeout(()=>{if(!wanted.current)context.suspend();},850);}}
+ useEffect(()=>{startSound();const unlock=e=>{if(e.target?.closest?.('.sound-control'))return;if(wanted.current&&engine.current?.context.state!=='running')startSound();};for(const name of ['pointerdown','keydown','wheel','touchstart'])document.addEventListener(name,unlock,{passive:true});return()=>{for(const name of ['pointerdown','keydown','wheel','touchstart'])document.removeEventListener(name,unlock);};},[]);
  useEffect(()=>{engine.current?.setProximity(progress);},[progress]);
  useEffect(()=>{const click=e=>{if(wanted.current&&engine.current&&e.target.closest('button,a')&&!e.target.closest('.sound-control'))engine.current.pop();};document.addEventListener('click',click,true);return()=>document.removeEventListener('click',click,true);},[]);
  useEffect(()=>{const visibility=()=>{if(!engine.current)return;if(document.hidden)engine.current.context.suspend();else if(wanted.current)engine.current.context.resume();};document.addEventListener('visibilitychange',visibility);return()=>{document.removeEventListener('visibilitychange',visibility);clearTimeout(stopTimer.current);engine.current?.destroy();};},[]);
