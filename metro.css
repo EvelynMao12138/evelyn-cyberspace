@@ -128,3 +128,11 @@ body,button,a{font-family:'Sora',Arial,sans-serif}
 .metro-header .header-actions button svg{display:block;width:18px;height:18px;flex:none}
 .metro-header .header-actions button:hover,.metro-header .header-actions .sound-on{background:#b9edff30;border-color:#e0f7ff80}
 .metro-header .header-actions .resume-link{margin:0;line-height:20px;min-height:44px}
+
+/* Quiet invitation: expanding outlines only while sound is off. */
+.metro-header .header-actions .sound-control{position:relative;isolation:isolate;overflow:visible}
+.sound-control:not(.sound-on)::before,.sound-control:not(.sound-on)::after{content:'';position:absolute;inset:-1px;pointer-events:none;border:1px solid #d5f9ffbb;border-radius:50%;box-shadow:0 0 9px #a5efff55;animation:sound-ripple 2.8s cubic-bezier(.15,.5,.35,1) infinite;z-index:-1}
+.sound-control:not(.sound-on)::after{animation-delay:1.4s}
+.metro-header .header-actions .sound-control:not(.sound-on){background:radial-gradient(circle at 35% 25%,#d9faff40,#74cfff14);box-shadow:inset 0 1px 3px #ffffff70,0 0 12px #a3eaff35}
+@keyframes sound-ripple{0%{transform:scale(1);opacity:0}12%{opacity:.8}75%,100%{transform:scale(1.8);opacity:0}}
+@media(prefers-reduced-motion:reduce){.sound-control:not(.sound-on)::before,.sound-control:not(.sound-on)::after{animation:none;opacity:.4;transform:scale(1.15)}.sound-control:not(.sound-on)::after{display:none}}
