@@ -1,0 +1,108 @@
+{
+  "home": {
+    "titleName": "Evelyn Mao’s",
+    "titleSpace": "Cyberspace.",
+    "education": "UC Irvine · GDIM × Harvard Medical School · MMH",
+    "intro": "I bring game design and interactive media into conversation with health and human experience—creating playful, thoughtful tools, stories, and worlds.",
+    "skills": [
+      "Game & interactive design",
+      "Software development",
+      "HCI & embodied interaction",
+      "Wearables & digital health",
+      "Storytelling",
+      "AI prototyping / vibe coding"
+    ],
+    "resumeUrl": "https://docs.google.com/document/d/1yBR8zEWwOkVho5BajIdG55skpQPGzthW3KA0TV5K13Y/edit?usp=sharing"
+  },
+  "sceneNames": [
+    "Carriage",
+    "Glass Link",
+    "Globe Plaza",
+    "Aqua Sphere"
+  ],
+  "projectGroups": [
+    {
+      "name": "My Projects",
+      "tag": "SELECTED WORK",
+      "intro": "Health, bodies, and immersive worlds. Start here.",
+      "projects": [
+        {
+          "name": "Just Keep Breathing",
+          "type": "Upcoming",
+          "desc": "待定 · 项目尚未开始，内容将后续补充。",
+          "status": "COMING SOON"
+        },
+        {
+          "name": "Her Cycle",
+          "type": "Femtech / Interactive app",
+          "desc": "An app that explains the four menstrual phases, tracks mood changes, and demonstrates the pain experienced during a period.",
+          "url": "https://evelynmao12138.itch.io/her-cycle",
+          "cta": "Explore the app"
+        },
+        {
+          "name": "Exhibition of Medieval Women's Daily Life",
+          "type": "Minecraft / VR",
+          "desc": "A virtual exhibition about medieval women, built in Minecraft.",
+          "url": "https://www.youtube.com/watch?v=eK-KhnSs5hg",
+          "cta": "Watch the exhibition"
+        }
+      ]
+    },
+    {
+      "name": "Class Projects",
+      "tag": "LEARNING THROUGH MAKING",
+      "intro": "Experiments in AR, games, and playful interaction.",
+      "projects": [
+        {
+          "name": "Pocket Pixie",
+          "type": "AR / Executive function",
+          "desc": "An AR-guided app that breaks daily tasks into small steps with emotional support, designed for users with executive function challenges such as ADHD.",
+          "url": "https://www.figma.com/design/1uTjYbfLS3f04kAltEe950?fuid=1571214589191169420&prev-plan-id=1571214591494187109&prev-plan-type=team&prev-selected-view=recentsAndSharing&prev-tab=recently-viewed",
+          "cta": "View in Figma"
+        },
+        {
+          "name": "Finding James",
+          "type": "Playful search game",
+          "desc": "Find your boyfriend in the park after a quarrel. A silly game about searching and making up.",
+          "url": "https://evelynmao12138.itch.io/finding-james",
+          "cta": "Play the game"
+        },
+        {
+          "name": "Falling Guy",
+          "type": "NS-SHAFT / Class project",
+          "desc": "A class project inspired by NS-SHAFT.",
+          "url": "https://evelynmao12138.itch.io/falling-guy123",
+          "cta": "Play the game"
+        },
+        {
+          "name": "Brew Beneath",
+          "type": "Monster coffee shop simulator",
+          "desc": "A monster coffee shop simulator.",
+          "url": "https://www.youtube.com/watch?v=nvbSgSbKDik",
+          "cta": "Watch the video"
+        }
+      ]
+    },
+    {
+      "name": "Others",
+      "tag": "MORE WORLDS TO EXPLORE",
+      "intro": "More games to explore.",
+      "projects": [
+        {
+          "name": "Reverberation",
+          "type": "Platformer",
+          "desc": "A platformer.",
+          "url": "https://www.gcores.com/games/148145",
+          "cta": "View the game"
+        },
+        {
+          "name": "Mouse Vision",
+          "type": "Platformer",
+          "desc": "A platformer.",
+          "url": "https://www.taptap.cn/app/724686?os=pc",
+          "cta": "View on TapTap"
+        }
+      ]
+    }
+  ]
+}
