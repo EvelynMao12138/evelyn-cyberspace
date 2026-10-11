@@ -7,8 +7,8 @@ function createSoundscape(){
  reverb.buffer=impulse;const wet=context.createGain();wet.gain.value=.3;reverb.connect(wet);wet.connect(master);
  const noise=context.createBuffer(1,context.sampleRate*8,context.sampleRate),data=noise.getChannelData(0);let brown=0;
  for(let i=0;i<data.length;i++){brown=(brown+(Math.random()*2-1)*.025)/1.025;data[i]=brown*3;}
- const wind=context.createBufferSource();wind.buffer=noise;wind.loop=true;const filter=context.createBiquadFilter();filter.type='lowpass';filter.frequency.value=850;
- const windGain=context.createGain();windGain.gain.value=.10;wind.connect(filter);filter.connect(windGain);windGain.connect(master);wind.start();
+ const wind=context.createBufferSource();wind.buffer=noise;wind.loop=true;const filter=context.createBiquadFilter();filter.type='lowpass';filter.frequency.value=550;
+ const windGain=context.createGain();windGain.gain.value=.075;wind.connect(filter);filter.connect(windGain);windGain.connect(master);wind.start();
  // A dedicated filtered-water layer follows the journey toward the aquarium.
  const waterNoise=context.createBuffer(1,context.sampleRate*7,context.sampleRate),waterData=waterNoise.getChannelData(0);let soft=0;
  for(let i=0;i<waterData.length;i++){soft=soft*.88+(Math.random()*2-1)*.12;waterData[i]=soft;}
@@ -29,8 +29,8 @@ function createSoundscape(){
  function stir(volume){const now=context.currentTime,duration=.9+Math.random()*.6,source=context.createBufferSource(),filter=context.createBiquadFilter(),gain=context.createGain(),pan=context.createStereoPanner();source.buffer=waterNoise;filter.type='bandpass';filter.Q.value=.85;filter.frequency.setValueAtTime(500,now);filter.frequency.exponentialRampToValueAtTime(1400,now+duration*.35);filter.frequency.exponentialRampToValueAtTime(650,now+duration);gain.gain.setValueAtTime(.0001,now);gain.gain.linearRampToValueAtTime(volume,now+.09);gain.gain.linearRampToValueAtTime(volume*.3,now+duration*.36);gain.gain.linearRampToValueAtTime(volume*.8,now+duration*.58);gain.gain.exponentialRampToValueAtTime(.0001,now+duration);pan.pan.setValueAtTime(-.22,now);pan.pan.linearRampToValueAtTime(.22,now+duration);source.connect(filter);filter.connect(gain);gain.connect(pan);pan.connect(master);source.start(now,Math.random()*5,duration);source.onended=()=>{source.disconnect();filter.disconnect();gain.disconnect();pan.disconnect();};for(let i=0;i<4;i++)bubble(now+.12+i*.18+Math.random()*.07,.05*proximity,190+Math.random()*330,(i-1.5)*.12);}
  function bubble(at=context.currentTime,volume=.075,frequency=550,panValue=0){const osc=context.createOscillator(),gain=context.createGain(),pan=context.createStereoPanner();osc.frequency.setValueAtTime(frequency,at);osc.frequency.exponentialRampToValueAtTime(frequency*1.65,at+.035);osc.frequency.exponentialRampToValueAtTime(frequency*.65,at+.14);gain.gain.setValueAtTime(.0001,at);gain.gain.exponentialRampToValueAtTime(volume,at+.006);gain.gain.exponentialRampToValueAtTime(.0001,at+.17);pan.pan.value=panValue;osc.connect(gain);gain.connect(pan);pan.connect(master);pan.connect(reverb);osc.start(at);osc.stop(at+.19);osc.onended=()=>{osc.disconnect();gain.disconnect();pan.disconnect();};}
  let proximity=0;
- function setProximity(progress){const x=Math.max(0,Math.min(1,(progress-.55)/.40));proximity=x*x*(3-2*x);const now=context.currentTime;waterGain.gain.setTargetAtTime(proximity*.12,now,.4);brookGain.gain.setTargetAtTime(0,now,.4);waterDepth.gain.setTargetAtTime(proximity*.012,now,.4);waterFilter.frequency.setTargetAtTime(1100+proximity*700,now,.5);windGain.gain.setTargetAtTime(.10-proximity*.085,now,.4);breezeDepth.gain.setTargetAtTime(.020-proximity*.018,now,.4);}
- const breeze=context.createOscillator(),breezeDepth=context.createGain();breeze.frequency.value=.075;breezeDepth.gain.value=.020;breeze.connect(breezeDepth);breezeDepth.connect(windGain.gain);breeze.start();
+ function setProximity(progress){const x=Math.max(0,Math.min(1,(progress-.55)/.40));proximity=x*x*(3-2*x);const now=context.currentTime;waterGain.gain.setTargetAtTime(proximity*.12,now,.4);brookGain.gain.setTargetAtTime(0,now,.4);waterDepth.gain.setTargetAtTime(proximity*.012,now,.4);waterFilter.frequency.setTargetAtTime(1100+proximity*700,now,.5);windGain.gain.setTargetAtTime(.075-proximity*.060,now,.4);breezeDepth.gain.setTargetAtTime(.008-proximity*.006,now,.4);}
+ const breeze=context.createOscillator(),breezeDepth=context.createGain();breeze.frequency.value=.075;breezeDepth.gain.value=.008;breeze.connect(breezeDepth);breezeDepth.connect(windGain.gain);breeze.start();
  const leafFilter=context.createBiquadFilter();leafFilter.type='bandpass';leafFilter.frequency.value=2300;leafFilter.Q.value=.55;
  const leafGain=context.createGain();leafGain.gain.value=.0001;wind.connect(leafFilter);leafFilter.connect(leafGain);leafGain.connect(master);
  function rustle(){const now=context.currentTime,duration=3+Math.random()*4;leafFilter.frequency.setTargetAtTime(1500+Math.random()*1500,now,.8);leafGain.gain.cancelScheduledValues(now);leafGain.gain.setValueAtTime(.0001,now);leafGain.gain.linearRampToValueAtTime(.045+Math.random()*.025,now+duration*.4);leafGain.gain.exponentialRampToValueAtTime(.0001,now+duration);}
@@ -45,7 +45,7 @@ function createSoundscape(){
  if(proximity>.05){const count=3+Math.floor(Math.random()*3),pan=Math.random()*.6-.3;for(let i=0;i<count;i++)bubble(now+i*(.13+Math.random()*.09),(.045+Math.random()*.025)*proximity,220+Math.random()*300,pan);}
  nextWaterTick=now+1.3+Math.random()*2.3;
  }
- if(now>=nextLeaves){rustle();nextLeaves=now+7+Math.random()*9;}
+ // A steady soft breeze replaces intermittent high-frequency leaf rustles.
  if(now>=nextBird){bird();nextBird=now+12+Math.random()*18;}
  if(now>=nextChord){chords[step%4].forEach((f,i)=>note(f,9,.018,'sine',(i-1.5)*.25));step++;nextChord=now+8;}
  if(now>=nextBell){const notes=[523.25,587.33,659.25,783.99,880];note(notes[Math.floor(Math.random()*notes.length)],4,.013,'sine',Math.random()*.9-.45);nextBell=now+2.8+Math.random()*4;}
