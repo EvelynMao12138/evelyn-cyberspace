@@ -12,7 +12,7 @@
       "Storytelling",
       "AI prototyping / vibe coding"
     ],
-    "resumeUrl": "https://docs.google.com/document/d/1yBR8zEWwOkVho5BajIdG55skpQPGzthW3KA0TV5K13Y/edit?usp=sharing"
+    "resumeUrl": "Yiran-Mao-Resume.pdf"
   },
   "sceneNames": [
     "Carriage",
@@ -28,23 +28,27 @@
       "projects": [
         {
           "name": "Just Keep Breathing",
-          "type": "Upcoming",
-          "desc": "待定 · 项目尚未开始，内容将后续补充。",
-          "status": "COMING SOON"
+          "type": "MMH Capstone",
+          "desc": "My capstone project for the Media, Medicine, and Health (MMH) program at Harvard Medical School is a visual novel controlled through breathing using a Vernier Go Direct respiration belt. It tells the story of my own experiences with post-traumatic stress disorder (PTSD) and intimate partner violence (IPV).",
+          "titleNote": "Currently in development"
         },
         {
           "name": "Her Cycle",
-          "type": "Femtech / Interactive app",
-          "desc": "An app that explains the four menstrual phases, tracks mood changes, and demonstrates the pain experienced during a period.",
+          "type": "Visual Novel / Women’s Health",
+          "desc": "A visual novel about a girl’s menstrual cycle, unfolding across its four phases. Inspired by my own experiences with period pain, it explores the often-unspoken struggles that girls face. To watch the trailer or download and play, follow the details link.",
           "url": "https://evelynmao12138.itch.io/her-cycle",
-          "cta": "Explore the app"
+          "cta": "View Details",
+          "image": "her-cycle-cover.png"
         },
         {
           "name": "Exhibition of Medieval Women's Daily Life",
           "type": "Minecraft / VR",
           "desc": "A virtual exhibition about medieval women, built in Minecraft.",
           "url": "https://www.youtube.com/watch?v=eK-KhnSs5hg",
-          "cta": "Watch the exhibition"
+          "cta": "Watch on YouTube",
+          "image": "medieval-exhibition-cover.png",
+          "imageFit": "cover",
+          "youtubeId": "eK-KhnSs5hg"
         }
       ]
     },
@@ -58,28 +62,103 @@
           "type": "AR / Executive function",
           "desc": "An AR-guided app that breaks daily tasks into small steps with emotional support, designed for users with executive function challenges such as ADHD.",
           "url": "https://www.figma.com/design/1uTjYbfLS3f04kAltEe950?fuid=1571214589191169420&prev-plan-id=1571214591494187109&prev-plan-type=team&prev-selected-view=recentsAndSharing&prev-tab=recently-viewed",
-          "cta": "View in Figma"
+          "cta": "View in Figma",
+          "image": "pocket-pixie-cover-v2.png",
+          "imageFit": "cover"
         },
         {
           "name": "Finding James",
           "type": "Playful search game",
-          "desc": "Find your boyfriend in the park after a quarrel. A silly game about searching and making up.",
+          "desc": "Find your boyfriend in the park after a quarrel. A silly game about searching and making up. This was a homework assignment on NavMesh navigation and baking.",
           "url": "https://evelynmao12138.itch.io/finding-james",
-          "cta": "Play the game"
+          "cta": "Play the game",
+          "image": "finding-james-cover.png",
+          "imageFit": "cover"
         },
         {
           "name": "Falling Guy",
           "type": "NS-SHAFT / Class project",
           "desc": "A class project inspired by NS-SHAFT.",
           "url": "https://evelynmao12138.itch.io/falling-guy123",
-          "cta": "Play the game"
+          "cta": "Play the game",
+          "image": "falling-guy-cover.png",
+          "imageFit": "cover",
+          "imageScale": 1.35,
+          "imageOffset": "-5%, -13%"
         },
         {
           "name": "Brew Beneath",
           "type": "Monster coffee shop simulator",
           "desc": "A monster coffee shop simulator.",
           "url": "https://www.youtube.com/watch?v=nvbSgSbKDik",
-          "cta": "Watch the video"
+          "cta": "Watch on YouTube",
+          "image": "brew-beneath-cover.png",
+          "imageFit": "cover",
+          "youtubeId": "nvbSgSbKDik"
+        },
+        {
+          "name": "My Little Planet",
+          "type": "Learning Design / Educational Game",
+          "desc": "A browser-based ecosystem learning game for K–12 science education.",
+          "url": "https://evelynmao12138.github.io/my-little-planet/",
+          "cta": "Play the Game",
+          "image": "my-little-planet-cover.png",
+          "imageFit": "cover"
+        }
+      ]
+    },
+    {
+      "name": "Artwork",
+      "tag": "VISUAL EXPLORATIONS",
+      "intro": "Illustrations, character designs, and comics.",
+      "emptyMessage": "Artwork will be added here.",
+      "projects": []
+    },
+    {
+      "name": "Writing",
+      "tag": "WORDS & IDEAS",
+      "intro": "Essays, fiction, and criticism on games, gender, and care.",
+      "emptyMessage": "Writing samples will be added here.",
+      "projects": [
+        {
+          "name": "She Built the Team. Who Gets to Tell Her Story?",
+          "type": "Short Fiction",
+          "desc": "A story of a woman game creator, a white-robed warrior, and the struggle to be heard.",
+          "url": "writing/white-loong.html",
+          "cta": "Read Story",
+          "internal": true
+        },
+        {
+          "name": "When Border Enforcement Becomes an Arcade Game",
+          "type": "Opinion / Games & Politics",
+          "desc": "An op-ed examining migration, dehumanization, and the politics embedded in game mechanics.",
+          "url": "writing/border-games.html",
+          "cta": "Read Essay",
+          "internal": true
+        },
+        {
+          "name": "She Survived Violence. Will She Survive the Winter?",
+          "type": "Reported Opinion",
+          "desc": "A reported op-ed on older and disabled survivors, financial abuse, and scarce shelter resources.",
+          "url": "writing/leaving-is-the-beginning.html",
+          "cta": "Read Essay",
+          "internal": true
+        },
+        {
+          "name": "What If Getting Help Requires the Energy You No Longer Have?",
+          "type": "Literature Review",
+          "desc": "A review of administrative burden, depression, and access to mental health services at Harvard.",
+          "url": "writing/barriers-to-care.html",
+          "cta": "Read Essay",
+          "internal": true
+        },
+        {
+          "name": "I Left Him. Why Was I Still Calling?",
+          "type": "Personal Essay",
+          "desc": "A personal essay on shame, trauma, and the contradictions that can remain after leaving an abusive relationship.",
+          "url": "writing/secret-of-shame.html",
+          "cta": "Read Essay",
+          "internal": true
         }
       ]
     },
@@ -101,6 +180,13 @@
           "desc": "A platformer.",
           "url": "https://www.taptap.cn/app/724686?os=pc",
           "cta": "View on TapTap"
+        },
+        {
+          "name": "Mystery",
+          "type": "CIGA Game Jam",
+          "desc": "A CIGA game jam project.",
+          "url": "https://www.gmhub.com/game/5126",
+          "cta": "View the Game"
         }
       ]
     }
