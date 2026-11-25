@@ -30,4 +30,30 @@ jobs:
           path: dist
       - name: Deploy
         id: deployment
-        uses: actions/deploy-pages@v5
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            let artifact;
+            for (let i = 0; i < 12; i++) {
+              const result = await github.rest.actions.listWorkflowRunArtifacts({ owner, repo, run_id: context.runId });
+              artifact = result.data.artifacts.find(a => a.name === 'github-pages');
+              if (artifact) break;
+              await new Promise(r => setTimeout(r, 5000));
+            }
+            if (!artifact) throw new Error('Pages artifact unavailable');
+            const oidc_token = await core.getIDToken();
+            const result = await github.request('POST /repos/{owner}/{repo}/pages/deployments', {
+              owner, repo, artifact_id: artifact.id, pages_build_version: context.sha, oidc_token
+            });
+            core.setOutput('page_url', result.data.page_url);
+            for (let i = 0; i < 120; i++) {
+              const status = await github.request('GET /repos/{owner}/{repo}/pages/deployments/{deployment_id}', {
+                owner, repo, deployment_id: result.data.id
+              });
+              core.info('Pages status: ' + status.data.status);
+              if (status.data.status === 'succeed') return;
+              if (['errored', 'deployment_failed', 'deployment_content_failed', 'cancelled'].includes(status.data.status)) throw new Error(status.data.status);
+              await new Promise(r => setTimeout(r, 5000));
+            }
+            throw new Error('Pages deployment timed out');
