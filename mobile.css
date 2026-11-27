@@ -31,3 +31,8 @@
 }
 
 @media(max-width:700px){.key-term-node{translate:none;transform:none;margin-top:-35px}.key-term-node>.term-hover-panel{position:fixed!important;left:60px!important;right:12px!important;top:17svh!important;bottom:auto!important;width:calc(100vw - 72px)!important;max-height:66svh!important}.key-term-node>.term-hover-panel .term-panel-body{max-height:49svh}.key-term-node>.term-hover-panel header{font-size:12px}}
+
+@media(max-width:700px){
+ .metro .aqua-fairy-thought:before{inset:0 -36px 0 0;transform:scaleX(-1)}
+ .metro .aquarium-project-dots button,.metro .aquarium-project-dots button[aria-current=true]{background:transparent!important;box-shadow:none!important;border:0!important}
+}
