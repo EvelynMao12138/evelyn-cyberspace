@@ -1,0 +1,33 @@
+/* Phone layout: controls remain reachable and content gets its own scrolling area. */
+@media(max-width:700px){
+ .metro{min-height:0;height:100svh}
+ .metro-header{padding:15px 18px}.resume-link{min-height:40px}
+ .scene-rail{left:7px;width:42px;padding:10px 4px;gap:7px}.scene-rail button{min-height:36px;justify-content:center}.rail-node{width:27px;height:27px}
+ .metro-footer{padding:12px 12px max(13px,env(safe-area-inset-bottom));height:86px}.metro-footer nav{overflow-x:auto;justify-content:flex-start;gap:9px;padding:2px 0 8px;scrollbar-width:thin;overscroll-behavior-x:contain}.metro-footer nav button{flex-shrink:0;min-height:43px;font-size:11px}
+ .metro .journey-controls{bottom:89px}
+ .scene-projects{left:57px;right:12px;top:14%;bottom:110px;pointer-events:auto;overscroll-behavior:contain;touch-action:pan-y;padding:5px 4px 25px;gap:18px}
+ .scene-project-card{animation:none;min-height:0}.scene-project-body{padding:13px}.scene-project-details{min-height:42px}.recent-work-bubble{display:none}
+ .aquarium-projects{left:60px;right:14px;top:auto;bottom:112px;width:auto;padding:12px;border-radius:24px;max-height:44svh;overflow-y:auto;overscroll-behavior:contain;touch-action:pan-y}
+ .aquarium-projects-heading{padding-bottom:8px}.aquarium-projects-heading h2{font-size:19px}.aquarium-project-cover{aspect-ratio:3/1}.aquarium-project-copy h3{font-size:15px;-webkit-line-clamp:2}.aquarium-project-copy p{display:block;min-height:0;font-size:11px;-webkit-line-clamp:2;margin-bottom:7px}.aquarium-project-link{min-height:40px;font-size:11px}
+ .aquarium-project-navigation>button{min-width:34px;min-height:34px}.aquarium-project-dots{gap:0;max-width:210px}.aquarium-project-dots button{width:16px;height:24px;background:transparent;position:relative}.aquarium-project-dots button:before{content:'';position:absolute;inset:9px 5px;border:1px solid white;border-radius:50%}.aquarium-project-dots button[aria-current=true]:before{background:white}
+ .aqua-fairy-thought{left:61px;right:18px;top:15%;bottom:auto;transform:translateY(var(--guide-idle-y,0px));width:auto;padding:12px 15px}.aqua-fairy-thought p{font-size:11px;line-height:1.45}.aqua-fairy-thought:before{left:0;right:-14px;transform:none}.aqua-dialogue-ok{min-height:34px;padding:4px 18px;font-size:11px}.aquarium-feed-hint{top:9%;font-size:9px}
+ .meadow-research-title{top:13%;left:54%;width:82vw}.meadow-research-title h2{font-size:30px}.research-orb-0{left:27%;top:33%}.research-orb-1{left:54%;top:29%}.research-orb-2{left:81%;top:33%}.research-orb-glass{width:66px;height:66px}
+ .meadow-pixie-chat{left:60px;right:14px;width:auto;bottom:113px;max-height:40svh;overflow-y:auto;overscroll-behavior:contain;touch-action:pan-y}.pixie-chat-answer{max-height:110px}.pixie-chat-answer p{font-size:12px}.pixie-chat-body input{font-size:16px;min-height:34px}.pixie-chat-body form>button{min-width:40px;min-height:38px}.pixie-question-suggestions button{min-height:30px;font-size:10px}.pixie-chat-toggle{min-height:32px}
+ .research-detail{width:calc(100vw - 36px);max-height:77svh;padding:27px 22px}.research-detail-close{width:38px;height:38px}.research-detail h4+p{font-size:13px}
+ .term-hover-panel{position:fixed!important;left:60px!important;right:12px!important;top:17%!important;bottom:auto!important;width:auto!important;max-width:none!important;max-height:66svh!important;z-index:8}.term-panel-body{max-height:50svh;overflow-y:auto;touch-action:pan-y;overscroll-behavior:contain}.term-related-works button,.term-related-works a{min-height:38px}
+ .station-overlay{padding:8px}.station-panel{width:100%;max-height:calc(100svh - 16px)}.window-content{padding:18px 15px}.project-entry{padding-left:0;display:flex!important;flex-direction:column;gap:14px}.project-preview,.breathing-preview{width:100%;max-width:100%}.project-actions{width:100%;display:flex;flex-wrap:wrap;align-items:center;gap:12px}.project-link{min-height:42px}.work-sticker{max-width:100px}.collection-tabs{overflow-x:auto;flex-wrap:nowrap}.collection-tabs button{flex-shrink:0;min-height:40px}.station-close{min-width:40px;min-height:36px}
+ .portfolio-reader{inset:0}.portfolio-reader-bar{padding:8px;gap:7px}.portfolio-reader-bar>span{display:none}.portfolio-reader-bar button{min-height:40px}
+}
+@media(max-width:700px) and (max-height:700px){.aqua-fairy-thought{top:12%;max-height:24svh;overflow-y:auto}.aqua-fairy-thought:before{display:none}.aquarium-projects{max-height:40svh}.meadow-research-title h2{font-size:25px}.research-orb-0,.research-orb-2{top:31%}.research-orb-1{top:28%}.meadow-pixie-chat{max-height:35svh}}
+
+@media(max-width:700px){
+ .aqua-fairy-thought:before{right:-52px}
+ .aquarium-project-dots button{border:0;box-shadow:none;padding:0;min-width:16px;border-radius:0}
+ .recent-work-bubble{position:static;align-self:center;transform:none;order:-1;margin:0 0 6px;font-size:12px}
+ .scene-projects{pointer-events:auto;touch-action:pan-y;overscroll-behavior:contain;padding-bottom:15px}
+ .scene-project-card{animation:none}
+ .metro-footer{padding-bottom:max(12px,env(safe-area-inset-bottom));padding-inline:12px}
+ .metro-footer nav{overflow-x:auto;touch-action:pan-x;scrollbar-width:none;gap:8px}.metro-footer nav::-webkit-scrollbar{display:none}.metro-footer nav button{min-height:44px;flex-shrink:0}
+}
+
+@media(max-width:700px){.key-term-node{translate:none;transform:none;margin-top:-35px}.key-term-node>.term-hover-panel{position:fixed!important;left:60px!important;right:12px!important;top:17svh!important;bottom:auto!important;width:calc(100vw - 72px)!important;max-height:66svh!important}.key-term-node>.term-hover-panel .term-panel-body{max-height:49svh}.key-term-node>.term-hover-panel header{font-size:12px}}

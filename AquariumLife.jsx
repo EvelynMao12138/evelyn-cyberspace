@@ -97,6 +97,7 @@ export default function AquariumLife({travel,animated}){
    if(local.x*local.x+(local.y-1.1)**2>2.35**2)return;
    food.current=food.current.filter(p=>p.alive);
    if(food.current.length>84)return;
+   window.dispatchEvent(new CustomEvent('aquarium-feed-sound'));
    for(let i=0;i<7;i++){
     food.current.push({alive:true,age:0,phase:Math.random()*6.28,radius:.025+Math.random()*.018,position:new THREE.Vector3(local.x+(Math.random()-.5)*.26,local.y+(Math.random()-.5)*.15,-.12+Math.random()*.22)});
    }
