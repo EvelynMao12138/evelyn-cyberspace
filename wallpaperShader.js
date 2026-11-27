@@ -1,7 +1,7 @@
 export const wallpaperShader = `
-uniform sampler2D scene0;uniform sampler2D scene1;uniform sampler2D scene2;uniform sampler2D scene3;
+uniform sampler2D scene0;uniform sampler2D scene1;uniform sampler2D scene2;uniform sampler2D scene3;uniform sampler2D scene4;uniform sampler2D meadowForeground;uniform vec2 meadowCloudBounds[3];uniform sampler2D meadowPlane;uniform float meadowPlaneAspect;uniform sampler2D meadowCloud;uniform sampler2D meadowCloudWisps;uniform sampler2D meadowCloudPuffs;
 uniform float cameraZ;uniform float aspect;uniform float imageAspect;
-uniform vec2 pointer;uniform float reduced;uniform float time;uniform vec2 texel;
+uniform vec2 pointer;uniform float motion;uniform vec2 meadowTexel;uniform float reduced;uniform float time;uniform vec2 texel;
 varying vec2 vUv;
 vec2 cover(vec2 uv){if(aspect>imageAspect)uv.y=(uv.y-.5)*imageAspect/aspect+.5;else uv.x=(uv.x-.5)*aspect/imageAspect+.5;return uv;}
 float gate(float z){
@@ -82,6 +82,88 @@ vec3 bubbles(vec3 color){
  }
  return color;
 }
+float meadowNoise(vec2 p){
+ vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);
+ float a=fract(sin(dot(i,vec2(127.1,311.7)))*43758.5453);
+ float b=fract(sin(dot(i+vec2(1.,0.),vec2(127.1,311.7)))*43758.5453);
+ float c=fract(sin(dot(i+vec2(0.,1.),vec2(127.1,311.7)))*43758.5453);
+ float d=fract(sin(dot(i+vec2(1.),vec2(127.1,311.7)))*43758.5453);
+ return mix(mix(a,b,f.x),mix(c,d,f.x),f.y);
+}
+vec4 driftingCloud(sampler2D cloudMap,vec2 uv,vec2 center,vec2 size){
+ vec2 q=(uv-center)/size+.5;
+ float inside=step(0.,q.x)*step(q.x,1.)*step(0.,q.y)*step(q.y,1.);
+ vec4 cloud=texture2D(cloudMap,clamp(q,0.,1.));cloud.a*=inside;
+ return cloud;
+}
+vec3 animateMeadow(){
+ vec2 uv=(cover(vUv)-.5)*.976+.5;
+ // A rigid horizontal pan: no depth-dependent stretch, tilt or vertical drift.
+ uv.x+=pointer.x*.006*motion*(1.-reduced);
+ vec3 base=texture2D(scene4,uv).rgb;
+ float green=smoothstep(.035,.17,base.g-max(base.r,base.b));
+ vec2 px=meadowTexel*3.;
+ vec3 e1=texture2D(scene4,uv+vec2(px.x,0.)).rgb,e2=texture2D(scene4,uv-vec2(px.x,0.)).rgb;
+ green*=smoothstep(.025,.14,min(e1.g-max(e1.r,e1.b),e2.g-max(e2.r,e2.b)));
+ float canopy=smoothstep(.24,.36,uv.y)*green;
+ float grass=(1.-smoothstep(.23,.38,uv.y))*green;
+ float breeze=sin(time*1.15+uv.y*35.+uv.x*11.)*.65+sin(time*1.8-uv.x*45.)*.35;
+ vec2 drift=vec2(breeze*.0035,sin(time*.95+uv.x*26.)*.0014)*canopy;
+ drift.x+=sin(time*1.2+uv.x*60.+uv.y*22.)*.0009*grass;
+ // Clouds are independent transparent textures; never distort the backdrop sky.
+ vec2 sampleUV=uv+drift*(1.-reduced);
+ vec3 center=texture2D(scene4,sampleUV).rgb;
+ vec3 neighbors=(texture2D(scene4,sampleUV+vec2(meadowTexel.x,0.)).rgb+texture2D(scene4,sampleUV-vec2(meadowTexel.x,0.)).rgb+texture2D(scene4,sampleUV+vec2(0.,meadowTexel.y)).rgb+texture2D(scene4,sampleUV-vec2(0.,meadowTexel.y)).rgb)*.25;
+ vec3 color=clamp(center+(center-neighbors)*.13,0.,1.);
+ // The source photograph is rendered again as a foreground layer after the clouds.
+ // Its pixel-derived matte preserves the actual tower, antenna and leaf contours.
+ vec3 foregroundColor=color;
+ float foregroundAlpha=texture2D(meadowForeground,sampleUV).r;
+ for(int i=0;i<3;i++){
+  float n=float(i);
+  float speed=i==0?.0018:i==1?.00105:.001425;
+  float start=i==0?.46:i==1?.59:.68;
+  float halfWidth=(i==0?.21:i==1?.29:.17)*.5;
+  float screenLeft=(cover(vec2(0.,.5)).x-.5)*.976+.5;
+  float screenRight=(cover(vec2(1.,.5)).x-.5)*.976+.5;
+  float enter=max(meadowCloudBounds[i].x,screenLeft)-halfWidth-.012;
+  float exit=min(meadowCloudBounds[i].y,screenRight)+halfWidth+.012;
+  float phase=fract((time*speed+start-enter)/(exit-enter));
+  vec2 location=vec2(mix(enter,exit,phase),.77+n*.065);
+  vec4 cloud;
+  if(i==0)cloud=driftingCloud(meadowCloud,uv,location,vec2(.21,.16));
+  else if(i==1)cloud=driftingCloud(meadowCloudWisps,uv,location,vec2(.29,.10));
+  else cloud=driftingCloud(meadowCloudPuffs,uv,location,vec2(.17,.12));
+  // Recycle as soon as the whole cloud clears the visible sky; no opacity fade.
+  color=mix(color,cloud.rgb,cloud.a*(.82-n*.10));
+ }
+ // The little white aircraft shares the same skyline occlusion as the clouds.
+ float flight=fract(time/180.+.5);
+ // A shallow climb into the distance, with a steady gentle turn rather than bobbing.
+ float climb=smoothstep(.10,.92,flight);
+ vec2 aircraftCenter=vec2(mix(-.12,1.12,flight),mix(.755,.94,climb));
+ float aircraftSize=mix(.062,.035,climb);
+ vec2 aircraftUV=(uv-aircraftCenter)/vec2(aircraftSize,aircraftSize*imageAspect/meadowPlaneAspect);
+ float bank=.035+sin(flight*3.14159)*.045;
+ aircraftUV=mat2(cos(bank),-sin(bank),sin(bank),cos(bank))*aircraftUV+.5;
+ float aircraftBounds=step(0.,aircraftUV.x)*step(aircraftUV.x,1.)*step(0.,aircraftUV.y)*step(aircraftUV.y,1.);
+ vec4 aircraft=texture2D(meadowPlane,clamp(aircraftUV,0.,1.));
+ color=mix(color,aircraft.rgb,aircraft.a*aircraftBounds*.96);
+ color=mix(color,foregroundColor,foregroundAlpha);
+ // Moving pools of light under the leaves, rather than a uniform brightness pulse.
+ vec2 wind=vec2(time*.23,time*.12);
+ float spots=meadowNoise(uv*vec2(70.,92.)+wind)*.7+meadowNoise(uv*vec2(132.,153.)-wind*.8)*.3;
+ float dapple=smoothstep(.34,.69,spots);
+ float ground=(1.-smoothstep(.18,.36,uv.y))*(.3+grass*.7);
+ float shade=(dapple-.5)*(.22*ground+.12*canopy);
+ color*=1.+shade*(1.-reduced);
+ vec2 sun=uv-vec2(.055,.94);float angle=atan(sun.y,sun.x);
+ float shafts=pow(max(0.,sin(angle*21.+sin(time*.7)*.24)),10.);
+ float shimmer=.5+.5*sin(time*1.3+sin(time*.47));
+ float light=exp(-length(sun)*3.)*(.008+shimmer*.016+shafts*.035);
+ color+=vec3(1.,.87,.52)*light*(1.-reduced);
+ return color;
+}
 void main(){
  vec2 uv=cover(vUv)+pointer*vec2(.0015,.0008)*(1.-reduced);
  float g1=gate(-14.);float g2=gate(-38.);float g3=gate(-50.);
@@ -94,6 +176,9 @@ void main(){
  else if(g1>.999)color=animateScene(scene1,uv,1.);
  else if(g1>.001)color=mix(animateScene(scene0,uv,0.),animateScene(scene1,uv,1.),g1);
  else color=animateScene(scene0,uv,0.);
+ // Fifth-stop foliage, light, clouds and parallax stay local to the garden.
+ float meadow=smoothstep(.82,.94,(5.-cameraZ)/(55.*4./3.));
+ if(meadow>.001)color=mix(color,animateMeadow(),meadow);
  // Glossy 3D soap-film spheres are rendered by AeroLife.
  float vignette=1.-smoothstep(.15,.85,length((vUv-.5)*vec2(.9,1.)));
  color*=mix(.96,1.,vignette);

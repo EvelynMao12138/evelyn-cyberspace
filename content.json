@@ -14,11 +14,218 @@
     ],
     "resumeUrl": "Yiran-Mao-Resume.pdf"
   },
+  "keyTerms": [
+    {
+      "title": "Embodied & Interactive Play",
+      "description": "I love exploring how technology changes perception, and how perception, in turn, shapes our bodies. I bring this curiosity into interactive games and wearable devices, connecting play with bodily experience.",
+      "works": [
+        {
+          "label": "Just Keep Breathing",
+          "group": 0,
+          "project": "Just Keep Breathing"
+        },
+        {
+          "label": "Her Cycle",
+          "group": 0,
+          "project": "Her Cycle"
+        },
+        {
+          "label": "Pocket Pixie",
+          "group": 1,
+          "project": "Pocket Pixie"
+        },
+        {
+          "label": "The Brew Beneath",
+          "group": 1,
+          "project": "The Brew Beneath"
+        },
+        {
+          "label": "My Little Planet",
+          "group": 0,
+          "project": "My Little Planet"
+        }
+      ],
+      "points": [
+        {
+          "lead": "Technology & perception",
+          "text": "I explore how technology changes perception—and how perception shapes our bodies."
+        },
+        {
+          "lead": "Play through the body",
+          "text": "I bring this curiosity into interactive games and wearable devices."
+        }
+      ]
+    },
+    {
+      "title": "Women’s Health",
+      "description": "I draw on my own experiences with period pain and trauma to make room for stories that are often left unspoken. I use games and visual narratives to explore what care can feel like.",
+      "works": [
+        {
+          "label": "Her Cycle",
+          "group": 0,
+          "project": "Her Cycle"
+        },
+        {
+          "label": "Period Comic",
+          "group": 2,
+          "artwork": "How It Feels on Your First Day of Your Period"
+        },
+        {
+          "label": "Secret of Shame",
+          "href": "writing/secret-of-shame.html"
+        }
+      ],
+      "points": [
+        {
+          "lead": "Lived experience",
+          "text": "I draw on my own experiences with period pain and trauma."
+        },
+        {
+          "lead": "Making room for care",
+          "text": "I use games and visual narratives to share stories that often go unspoken."
+        }
+      ]
+    },
+    {
+      "title": "Game & Visual Storytelling",
+      "description": "I tell stories through comics, illustration, and interactive worlds. I use color, character, and small everyday moments to make difficult feelings visible and invite others into the story.",
+      "works": [
+        {
+          "label": "Her Cycle",
+          "group": 0,
+          "project": "Her Cycle"
+        },
+        {
+          "label": "Finding James",
+          "group": 1,
+          "project": "Finding James"
+        },
+        {
+          "label": "Illustration & Color",
+          "group": 2
+        },
+        {
+          "label": "The Brew Beneath",
+          "group": 1,
+          "project": "The Brew Beneath"
+        },
+        {
+          "label": "This Gender Is Not Recommended in the Current Patch",
+          "group": 2,
+          "artwork": "This Gender Is Not Recommended in the Current Patch"
+        }
+      ],
+      "points": [
+        {
+          "lead": "Stories you can experience",
+          "text": "I tell stories through comics, illustration, and interactive worlds."
+        },
+        {
+          "lead": "Making feelings visible",
+          "text": "I use color, character, and everyday moments to express difficult emotions."
+        }
+      ]
+    },
+    {
+      "title": "Social / Medical Justice",
+      "description": "I explore how gender, violence, and social inequality shape health and access to medical care. Through writing and interactive design, I ask whose pain is taken seriously and how care can become more equitable and accessible.",
+      "works": [
+        {
+          "label": "Who Bears Responsibility When Accessing Care: Mental Health Service Barriers at Harvard",
+          "href": "writing/barriers-to-care.html"
+        },
+        {
+          "label": "For Some, Leaving an Abusive Partner Is Only the Beginning",
+          "href": "writing/leaving-is-the-beginning.html"
+        },
+        {
+          "label": "People Risk Their Lives to Cross the Border, yet the White House Makes Catching Them Child’s Play",
+          "href": "writing/border-games.html"
+        },
+        {
+          "label": "This Gender Is Not Recommended in the Current Patch",
+          "group": 2,
+          "artwork": "This Gender Is Not Recommended in the Current Patch"
+        }
+      ],
+      "points": [
+        {
+          "lead": "Health & inequality",
+          "text": "I explore how gender, violence, and inequality shape health and access to medical care."
+        },
+        {
+          "lead": "Whose pain is heard?",
+          "text": "Through writing and interactive design, I ask how care can become more equitable and accessible."
+        }
+      ]
+    },
+    {
+      "title": "Learning Design",
+      "description": "I turn learning into something people can explore and try for themselves. From playful ecosystems to small, manageable tasks, I design interactions that support curiosity and learning at a personal pace.",
+      "works": [
+        {
+          "label": "My Little Planet",
+          "group": 0,
+          "project": "My Little Planet"
+        },
+        {
+          "label": "Medieval Women · VR",
+          "group": 0,
+          "project": "Exhibition of Medieval Women's Daily Life"
+        }
+      ],
+      "points": [
+        {
+          "lead": "Learning by exploring",
+          "text": "I create playful experiences that let people discover and try things for themselves."
+        },
+        {
+          "lead": "A personal pace",
+          "text": "I design curious worlds and manageable steps that support different ways of learning."
+        }
+      ]
+    },
+    {
+      "title": "Feminist Community Building",
+      "description": "I care about the challenges women face and am committed to building communities for women. I founded and manage the Women’s Gaming Club at UCI, with 300 Discord members. As FemTech Associate Director at the Harvard Griffin GSAS Business Club (HGGBC), I connect with outstanding women leaders and invite them to speak at Harvard.",
+      "works": [
+        {
+          "label": "This Gender Is Not Recommended in the Current Patch",
+          "group": 2,
+          "artwork": "This Gender Is Not Recommended in the Current Patch"
+        },
+        {
+          "label": "Complicity of Order",
+          "group": 2,
+          "artwork": "Complicity of Order"
+        },
+        {
+          "label": "The White Loong",
+          "href": "writing/white-loong.html"
+        }
+      ],
+      "points": [
+        {
+          "lead": "My commitment",
+          "text": "I focus on the challenges women face and build communities for women."
+        },
+        {
+          "lead": "Women’s Gaming Club at UCI",
+          "text": "I founded and manage the club, with 300 Discord members."
+        },
+        {
+          "lead": "FemTech Associate Director",
+          "text": "At the Harvard Griffin GSAS Business Club (HGGBC), I connect with outstanding women leaders and invite them to speak at Harvard."
+        }
+      ]
+    }
+  ],
   "sceneNames": [
-    "Carriage",
-    "Glass Link",
-    "Globe Plaza",
-    "Aqua Sphere"
+    "About Me",
+    "My Key Words",
+    "My Projects",
+    "Explore More Works",
+    "Future Imagination"
   ],
   "projectGroups": [
     {
@@ -28,13 +235,14 @@
       "projects": [
         {
           "name": "Just Keep Breathing",
-          "type": "MMH Capstone",
+          "type": "MMH Capstone / Breath-Controlled Video Game",
           "desc": "My capstone project for the Media, Medicine, and Health (MMH) program at Harvard Medical School is a visual novel controlled through breathing using a Vernier Go Direct respiration belt. It tells the story of my own experiences with post-traumatic stress disorder (PTSD) and intimate partner violence (IPV).",
-          "titleNote": "Currently in development"
+          "titleNote": "Currently in development",
+          "badge": "NEW"
         },
         {
           "name": "Her Cycle",
-          "type": "Visual Novel / Women’s Health",
+          "type": "Visual Novel Video Game / Women’s Health",
           "desc": "A visual novel about a girl’s menstrual cycle, unfolding across its four phases. Inspired by my own experiences with period pain, it explores the often-unspoken struggles that girls face. To watch the trailer or download and play, follow the details link.",
           "url": "https://evelynmao12138.itch.io/her-cycle",
           "cta": "View Details",
@@ -43,12 +251,21 @@
         {
           "name": "Exhibition of Medieval Women's Daily Life",
           "type": "Minecraft / VR",
-          "desc": "A virtual exhibition about medieval women, built in Minecraft.",
+          "desc": "A virtual exhibition built in Minecraft that challenges stereotypes reducing medieval women to witches. It highlights their many contributions to medicine, baking, brewing, and herbal practices, offering a fuller picture of their everyday lives and expertise.",
           "url": "https://www.youtube.com/watch?v=eK-KhnSs5hg",
           "cta": "Watch on YouTube",
           "image": "medieval-exhibition-cover.png",
           "imageFit": "cover",
           "youtubeId": "eK-KhnSs5hg"
+        },
+        {
+          "name": "My Little Planet",
+          "type": "Learning Design / Educational Game",
+          "desc": "A browser-based ecosystem learning game for K–12 science education.",
+          "url": "https://evelynmao12138.github.io/my-little-planet/",
+          "cta": "Play the Game",
+          "image": "my-little-planet-cover.png",
+          "imageFit": "cover"
         }
       ]
     },
@@ -58,13 +275,34 @@
       "intro": "Experiments in AR, games, and playful interaction.",
       "projects": [
         {
+          "name": "MIT MANUS Comic",
+          "type": "Science Comic / Rehabilitation Robotics",
+          "desc": "I interviewed Neville Hogan about MIT-MANUS to explore how robotic arms and games can support stroke rehabilitation. I turned the interview into a science comic, which was collected by the MIT Museum.",
+          "image": "mit-manus-comic-cover.png",
+          "imageFit": "cover",
+          "status": "Interview / Science Comic"
+        },
+        {
           "name": "Pocket Pixie",
           "type": "AR / Executive function",
           "desc": "An AR-guided app that breaks daily tasks into small steps with emotional support, designed for users with executive function challenges such as ADHD.",
-          "url": "https://www.figma.com/design/1uTjYbfLS3f04kAltEe950?fuid=1571214589191169420&prev-plan-id=1571214591494187109&prev-plan-type=team&prev-selected-view=recentsAndSharing&prev-tab=recently-viewed",
-          "cta": "View in Figma",
+          "url": "pocket-pixie.html",
+          "cta": "View Details",
           "image": "pocket-pixie-cover-v2.png",
-          "imageFit": "cover"
+          "imageFit": "cover",
+          "figmaUrl": "https://www.figma.com/design/1uTjYbfLS3f04kAltEe950?fuid=1571214589191169420&prev-plan-id=1571214591494187109&prev-plan-type=team&prev-selected-view=recentsAndSharing&prev-tab=recently-viewed",
+          "internal": true
+        },
+        {
+          "name": "The Brew Beneath",
+          "type": "UCI Capstone / Visual Novel & Café Management",
+          "desc": "A UCI capstone game combining a visual novel with café management. Each night, you prepare coffee orders for monster customers, befriend them, and uncover a shocking conspiracy lurking beneath the town.",
+          "url": "https://www.youtube.com/watch?v=nvbSgSbKDik",
+          "cta": "Watch on YouTube",
+          "image": "brew-beneath-cover.png",
+          "imageFit": "cover",
+          "youtubeId": "nvbSgSbKDik",
+          "playUrl": "https://maryzhou7799.itch.io/the-brew-beneath-pc"
         },
         {
           "name": "Finding James",
@@ -85,25 +323,6 @@
           "imageFit": "cover",
           "imageScale": 1.35,
           "imageOffset": "-5%, -13%"
-        },
-        {
-          "name": "Brew Beneath",
-          "type": "Monster coffee shop simulator",
-          "desc": "A monster coffee shop simulator.",
-          "url": "https://www.youtube.com/watch?v=nvbSgSbKDik",
-          "cta": "Watch on YouTube",
-          "image": "brew-beneath-cover.png",
-          "imageFit": "cover",
-          "youtubeId": "nvbSgSbKDik"
-        },
-        {
-          "name": "My Little Planet",
-          "type": "Learning Design / Educational Game",
-          "desc": "A browser-based ecosystem learning game for K–12 science education.",
-          "url": "https://evelynmao12138.github.io/my-little-planet/",
-          "cta": "Play the Game",
-          "image": "my-little-planet-cover.png",
-          "imageFit": "cover"
         }
       ]
     },
@@ -121,44 +340,49 @@
       "emptyMessage": "Writing samples will be added here.",
       "projects": [
         {
-          "name": "She Built the Team. Who Gets to Tell Her Story?",
+          "name": "The White Loong",
           "type": "Short Fiction",
           "desc": "A story of a woman game creator, a white-robed warrior, and the struggle to be heard.",
           "url": "writing/white-loong.html",
           "cta": "Read Story",
-          "internal": true
+          "internal": true,
+          "subtitle": "She Built the Team. Who Gets to Tell Her Story?"
         },
         {
-          "name": "When Border Enforcement Becomes an Arcade Game",
+          "name": "People Risk Their Lives to Cross the Border, yet the White House Makes Catching Them Child’s Play",
           "type": "Opinion / Games & Politics",
           "desc": "An op-ed examining migration, dehumanization, and the politics embedded in game mechanics.",
           "url": "writing/border-games.html",
           "cta": "Read Essay",
-          "internal": true
+          "internal": true,
+          "subtitle": "When Border Enforcement Becomes an Arcade Game"
         },
         {
-          "name": "She Survived Violence. Will She Survive the Winter?",
+          "name": "For Some, Leaving an Abusive Partner Is Only the Beginning",
           "type": "Reported Opinion",
           "desc": "A reported op-ed on older and disabled survivors, financial abuse, and scarce shelter resources.",
           "url": "writing/leaving-is-the-beginning.html",
           "cta": "Read Essay",
-          "internal": true
+          "internal": true,
+          "subtitle": "She Survived Violence. Will She Survive the Winter?"
         },
         {
-          "name": "What If Getting Help Requires the Energy You No Longer Have?",
+          "name": "Who Bears Responsibility When Accessing Care: Mental Health Service Barriers at Harvard",
           "type": "Literature Review",
           "desc": "A review of administrative burden, depression, and access to mental health services at Harvard.",
           "url": "writing/barriers-to-care.html",
           "cta": "Read Essay",
-          "internal": true
+          "internal": true,
+          "subtitle": "What If Getting Help Requires the Energy You No Longer Have?"
         },
         {
-          "name": "I Left Him. Why Was I Still Calling?",
+          "name": "Secret of Shame",
           "type": "Personal Essay",
           "desc": "A personal essay on shame, trauma, and the contradictions that can remain after leaving an abusive relationship.",
           "url": "writing/secret-of-shame.html",
           "cta": "Read Essay",
-          "internal": true
+          "internal": true,
+          "subtitle": "I Left Him. Why Was I Still Calling?"
         }
       ]
     },
