@@ -6,7 +6,7 @@
  .metro-footer{padding:12px 12px max(13px,env(safe-area-inset-bottom));height:86px}.metro-footer nav{overflow-x:auto;justify-content:flex-start;gap:9px;padding:2px 0 8px;scrollbar-width:thin;overscroll-behavior-x:contain}.metro-footer nav button{flex-shrink:0;min-height:43px;font-size:11px}
  .metro .journey-controls{bottom:89px}
  .scene-projects{left:57px;right:12px;top:14%;bottom:110px;pointer-events:auto;overscroll-behavior:contain;touch-action:pan-y;padding:5px 4px 25px;gap:18px}
- .scene-project-card{animation:none;min-height:0}.scene-project-body{padding:13px}.scene-project-details{min-height:42px}.recent-work-bubble{display:none}
+ .scene-project-card{animation:none;min-height:0}.scene-project-body{padding:13px}.scene-project-details{min-height:42px}.recent-work-bubble{display:block}
  .aquarium-projects{left:60px;right:14px;top:auto;bottom:112px;width:auto;padding:12px;border-radius:24px;max-height:44svh;overflow-y:auto;overscroll-behavior:contain;touch-action:pan-y}
  .aquarium-projects-heading{padding-bottom:8px}.aquarium-projects-heading h2{font-size:19px}.aquarium-project-cover{aspect-ratio:3/1}.aquarium-project-copy h3{font-size:15px;-webkit-line-clamp:2}.aquarium-project-copy p{display:block;min-height:0;font-size:11px;-webkit-line-clamp:2;margin-bottom:7px}.aquarium-project-link{min-height:40px;font-size:11px}
  .aquarium-project-navigation>button{min-width:34px;min-height:34px}.aquarium-project-dots{gap:0;max-width:210px}.aquarium-project-dots button{width:16px;height:24px;background:transparent;position:relative}.aquarium-project-dots button:before{content:'';position:absolute;inset:9px 5px;border:1px solid white;border-radius:50%}.aquarium-project-dots button[aria-current=true]:before{background:white}

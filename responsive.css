@@ -1,0 +1,76 @@
+/* Tablet and unusual aspect ratios retain the desktop spatial composition. */
+.metro{min-height:0;height:100svh}
+.metro-footer nav{min-width:0;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin}.metro-footer nav button{flex-shrink:0}
+.station-panel,.research-detail{max-height:calc(100svh - 30px)}
+@media(min-width:600px) and (max-width:1200px){
+ .scene-rail{left:12px;width:48px;padding:14px 7px;gap:10px}.scene-rail .rail-caption,.scene-rail .rail-arrival,.scene-rail .rail-name{display:none}.scene-rail button{min-height:35px;justify-content:center;gap:0}.rail-node{width:27px;height:27px}
+ .metro-header{padding:22px 28px}
+ .metro-footer{height:96px;padding:16px 26px}.metro-footer nav{justify-content:flex-start;gap:10px;margin-left:0}.metro-footer nav button{font-size:12px;min-height:46px;padding:10px 19px}
+ .metro .journey-controls{bottom:103px}
+ .scene-projects{display:flex;flex-direction:row;overflow:visible;left:13%;right:7%;top:18%;bottom:auto;gap:clamp(16px,5vw,70px);align-items:stretch}
+ .scene-project-card{width:calc((100% - clamp(16px,5vw,70px))/2);max-width:340px;min-width:0;min-height:0;animation:none}
+ .scene-project-body{padding:12px 12px 18px}.scene-project-body h2{font-size:clamp(18px,2.2vw,25px)}.scene-project-body p{font-size:12px;line-height:1.5}.scene-project-tag{font-size:8px;letter-spacing:.3px}
+ .recent-work-bubble{top:calc(100% + 15px);left:47%;font-size:12px}
+ .aquarium-projects{right:3%;left:auto;top:21%;bottom:auto;width:clamp(195px,26vw,280px);max-height:calc(100svh - 240px);overflow-y:auto;overscroll-behavior:contain}
+ .aqua-fairy-thought{left:22%;right:auto;top:auto;bottom:25%;width:clamp(245px,32vw,360px);transform:translateY(var(--guide-idle-y,0px));max-height:35svh;padding:13px 16px}
+ .aqua-fairy-thought p{font-size:12px;line-height:1.5}.metro .aqua-fairy-thought:before{inset:0 0 0 -36px;transform:none}
+ .aquarium-feed-hint{top:14%;max-width:50vw;font-size:10px}
+ .meadow-pixie-chat{left:29%;right:6%;width:auto;bottom:16%;max-height:36svh;overflow-y:auto}.pixie-chat-answer{max-height:115px}.pixie-chat-answer p{font-size:12px}.pixie-chat-body input{font-size:16px}.pixie-question-suggestions button{min-height:30px;font-size:10px}
+ .key-term-orbit{left:12%;right:5%}.key-term-node{width:37%}.key-term-bubble{font-size:clamp(13px,1.8vw,19px)}
+ .key-term-node{translate:none;transform:none;margin-top:-36px}.key-term-node>.term-hover-panel{position:fixed;left:20%;right:12%;top:18svh;bottom:auto;width:auto;max-width:none;max-height:65svh}.term-panel-body{overflow-y:auto;overscroll-behavior:contain}
+ .metro-title{left:13%;right:34%;bottom:24%}.metro-title h1{font-size:clamp(35px,5.3vw,65px);letter-spacing:-1.8px}.portrait-gallery{right:4%;width:clamp(155px,23vw,240px);top:23%}
+}
+@media(min-width:600px) and (max-aspect-ratio:4/5){
+ .scene-projects{top:20%}.aqua-fairy-thought{left:17%;bottom:24%;width:35vw}.aquarium-projects{top:20%;right:3%;width:27vw}
+ .meadow-research-title{top:15%}.research-orb-0,.research-orb-2{top:36%}.research-orb-1{top:30%}
+}
+@media(min-width:600px) and (max-height:720px){
+ .metro-header{padding:14px 24px}.metro-footer{height:80px;padding:11px 20px}.metro .journey-controls{bottom:85px}
+ .scene-projects{top:16%;bottom:125px;overflow-y:auto;pointer-events:auto;overscroll-behavior:contain;align-items:flex-start;padding:5px 3px 12px}.scene-project-card{flex-shrink:0;animation:none}
+ .aquarium-projects{top:16%;max-height:calc(100svh - 200px);overflow-y:auto;overscroll-behavior:contain}.aqua-fairy-thought{max-height:33svh;overflow-y:auto;bottom:26%}.aqua-fairy-thought p{font-size:11px;line-height:1.4}.aqua-fairy-thought:before{display:none}.aqua-fairy-thought{background:#bde4e9f2;border-radius:22px}
+ .meadow-research-title{top:12%}.meadow-research-title h2{font-size:32px}.meadow-pixie-chat{bottom:100px;max-height:34svh;overflow-y:auto}
+ .scene-rail{max-height:65svh;overflow-y:auto}.metro-title{bottom:24%}.metro-title h1{font-size:clamp(30px,4.5vw,60px)}
+}
+@media(min-aspect-ratio:21/9) and (min-width:1201px){.scene-projects{left:22%;right:22%;top:18%}.scene-project-card{width:min(25vw,320px)}.aquarium-projects{right:8%;top:18%}.aqua-fairy-thought{left:26%;width:330px}.meadow-pixie-chat{left:36%;width:440px}}
+
+@media(min-width:600px) and (max-width:1200px){
+ .research-orb-0{left:28%}.research-orb-1{left:50%}.research-orb-2{left:75%}
+ .aqua-dialogue-ok{min-height:32px}.scene-project-details{min-height:40px}
+}
+@media(min-width:600px) and (max-width:700px){
+ .scene-project-card{align-self:stretch;max-width:none}.scene-project-cycle{margin-top:0}.scene-project-body{padding:10px}.scene-project-body h2{font-size:18px}.scene-project-body p{font-size:11px}.scene-project-tag{font-size:7px}.scene-project-details{font-size:10px;padding:8px 12px}
+ .aqua-fairy-thought{left:23%;width:35vw;max-height:34svh;overflow-y:auto}.aqua-fairy-thought p{font-size:11px}.aquarium-projects{left:auto;bottom:auto;right:3%;top:21%;width:27vw;max-height:58svh}.aquarium-project-cover{aspect-ratio:16/10}.aquarium-project-copy h3{font-size:14px}.aquarium-project-copy p{font-size:10px}
+ .meadow-pixie-chat{left:28%;right:4%;width:auto;bottom:16%}.meadow-research-title{left:50%;width:80vw}.research-orb-0,.research-orb-2{top:36%}.research-orb-1{top:30%}
+}
+
+html,body,.journey-track{overflow-anchor:none}
+
+@media(min-width:600px) and (max-height:720px){.research-orb-0,.research-orb-2{top:31%}.research-orb-1{top:26%}}
+
+/* Compact windows use the same anchors as the approved full-screen composition.
+   These rules never apply to the desktop reference layout. */
+@media(min-width:600px) and (max-width:1200px){
+ .portrait-gallery{top:43%;right:5%;transform:translateY(-50%);width:clamp(150px,23vw,260px);max-width:38svh}
+ .key-term-orbit{left:15%;right:15%;top:0;bottom:0}
+ .key-term-node{width:34%;height:72px;translate:none;transform:none;margin-top:-36px}
+ .term-0,.term-2,.term-4{left:2.5%;right:auto}.term-1,.term-3,.term-5{right:2.5%;left:auto}
+ .term-0,.term-1{top:32.1429%}.term-2,.term-3{top:52.1429%}.term-4,.term-5{top:72.1429%}
+ .key-term-bubble{font-size:clamp(12px,1.5vw,18px);padding:10px 12px}
+ .meadow-research-title{left:50%;top:13%;width:min(620px,80vw)}
+ .research-orb-0{left:28%;top:38%}.research-orb-1{left:50%;top:32%}.research-orb-2{left:72%;top:38%}
+ .research-orb .research-orb-glass{width:104px;height:104px}
+ .meadow-pixie-chat{left:35%;right:8%;width:auto;top:auto;bottom:14%;max-height:34svh;overflow-y:auto}
+ .recent-work-bubble{display:block;position:absolute;top:calc(100% + 14px);left:50%;transform:translate(-50%,var(--guide-idle-y,0px));font-size:12px;white-space:nowrap}
+}
+@media(min-width:600px) and (max-width:1200px) and (max-height:720px){
+ .research-orb-0,.research-orb-2{top:35%}.research-orb-1{top:29%}
+ .meadow-pixie-chat{bottom:100px;max-height:29svh}
+ .recent-work-bubble{position:fixed;top:59svh;left:50%}
+ .pixie-chat-answer{max-height:64px}.pixie-chat-body{padding:7px 12px}.pixie-question-suggestions button{min-height:24px}
+}
+
+@media(min-width:600px) and (max-width:1200px) and (max-height:720px){.research-orb-0,.research-orb-2{top:30%}.research-orb-1{top:26%}}
+
+/* Hover rings must extend beyond the navigation's scroll viewport. */
+@media(min-width:1201px){.metro-footer nav{overflow:visible}}
+@media(max-width:1200px){.metro-footer nav{padding:20px 22px;margin-block:-20px;margin-inline:-22px;max-width:calc(100% + 44px);scroll-padding-inline:22px}}

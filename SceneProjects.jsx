@@ -6,7 +6,7 @@ export default function SceneProjects({progress}){
  const distance=Math.abs(progress-2/3);
  if(distance>.065)return null;
  const cycle=content.projectGroups.flatMap(g=>g.projects).find(p=>p.name==='Her Cycle');
- return <section className="scene-projects" aria-label="Featured projects" style={{opacity:Math.max(0,1-distance/.045),visibility:distance<.045?'visible':'hidden'}}>
+ return <section className="scene-projects" aria-label="Featured projects" style={{visibility:distance<.045?'visible':'hidden'}}>
   <div className="recent-work-bubble">My recent work :)</div>
   <article className="scene-project-card">
    <div className="scene-project-media"><BreathingPreview/></div>

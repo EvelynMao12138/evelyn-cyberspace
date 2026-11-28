@@ -567,3 +567,12 @@ body,button,a{font-family:'Sora',Arial,sans-serif}
 @media(max-width:700px){.aqua-fairy-thought:before{inset:0 -36px 0 0;transform:scaleX(-1)}}
 
 @media(min-width:701px){.aqua-fairy-thought{left:23%}}
+
+/* Readable glass even when the browser temporarily drops backdrop compositing. */
+.scene-project-card{background:radial-gradient(ellipse at 18% 0%,#efffff9c,transparent 45%),linear-gradient(145deg,#b9e9ee85,#85c5d68c 55%,#a9dcc685);-webkit-backdrop-filter:blur(13px) saturate(1.15);backdrop-filter:blur(13px) saturate(1.15)}
+.scene-project-cycle{background:radial-gradient(ellipse at 80% 0%,#efffff8c,transparent 46%),linear-gradient(215deg,#b7e8d885,#83c8c68c 55%,#a8d8e785)}
+
+/* Keep the third-scene pixie in front of the featured project cards. */
+.project-fairy-foreground{position:absolute;inset:0;z-index:6;pointer-events:none}.project-fairy-foreground canvas{pointer-events:none}
+
+.project-fairy-foreground{position:absolute;inset:0;z-index:5;pointer-events:none}.project-fairy-foreground canvas{pointer-events:none}
