@@ -576,3 +576,5 @@ body,button,a{font-family:'Sora',Arial,sans-serif}
 .project-fairy-foreground{position:absolute;inset:0;z-index:6;pointer-events:none}.project-fairy-foreground canvas{pointer-events:none}
 
 .project-fairy-foreground{position:absolute;inset:0;z-index:5;pointer-events:none}.project-fairy-foreground canvas{pointer-events:none}
+
+.project-fairy-sprite{position:absolute;left:50%;bottom:19%;z-index:5;width:12.9svh;height:17.78svh;padding:0;border:0;background-color:transparent;background-repeat:no-repeat;background-size:344.8276% 100%;background-position:92.2535% 0;transform:translate(-50%,var(--guide-idle-y,0px)) rotate(var(--guide-idle-tilt,0rad));cursor:pointer}
